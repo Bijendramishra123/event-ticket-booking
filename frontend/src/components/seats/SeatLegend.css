@@ -1,0 +1,59 @@
+.seat-legend {
+  display: flex;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid #ecf0f1;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.legend-color {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 2px solid #bdc3c7;
+}
+
+.legend-color.available {
+  background: #ecf0f1;
+  border-color: #bdc3c7;
+}
+
+.legend-color.selected {
+  background: #4a90e2;
+  border-color: #357abd;
+}
+
+.legend-color.reserved {
+  background: #f39c12;
+  border-color: #e67e22;
+}
+
+.legend-color.booked {
+  background: #e74c3c;
+  border-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .seat-legend {
+    gap: 12px;
+  }
+  
+  .legend-item {
+    font-size: 12px;
+  }
+  
+  .legend-color {
+    width: 20px;
+    height: 20px;
+  }
+}

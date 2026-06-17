@@ -1,0 +1,148 @@
+.booking-confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.booking-confirmation-modal {
+  background: white;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.confirmation-header {
+  padding: 32px 32px 24px;
+  text-align: center;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.confirmation-icon {
+  font-size: 64px;
+  margin-bottom: 12px;
+}
+
+.confirmation-title {
+  font-size: 28px;
+  color: #27ae60;
+  margin-bottom: 8px;
+}
+
+.confirmation-subtitle {
+  color: #7f8c8d;
+  font-size: 16px;
+}
+
+.confirmation-body {
+  padding: 24px 32px;
+}
+
+.confirmation-details {
+  margin-bottom: 24px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f4f8;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.detail-value {
+  font-weight: 500;
+  color: #2c3e50;
+  text-align: right;
+  word-break: break-word;
+}
+
+.detail-value.seat-numbers {
+  color: #4a90e2;
+  font-weight: 600;
+}
+
+.detail-value.amount {
+  color: #27ae60;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.confirmation-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.confirmation-actions .btn {
+  flex: 1;
+  padding: 12px;
+}
+
+.confirmation-footer {
+  padding: 16px 32px 32px;
+  background: #f8f9fa;
+  border-top: 1px solid #ecf0f1;
+  border-radius: 0 0 16px 16px;
+}
+
+.confirmation-note {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 480px) {
+  .confirmation-header {
+    padding: 24px 20px 16px;
+  }
+  
+  .confirmation-body {
+    padding: 16px 20px;
+  }
+  
+  .confirmation-footer {
+    padding: 12px 20px 24px;
+  }
+  
+  .confirmation-title {
+    font-size: 22px;
+  }
+  
+  .confirmation-actions {
+    flex-direction: column;
+  }
+}

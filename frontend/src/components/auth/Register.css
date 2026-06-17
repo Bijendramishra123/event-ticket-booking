@@ -1,0 +1,38 @@
+.auth-terms {
+  margin: 4px 0;
+}
+
+.terms-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--gray-600);
+  cursor: pointer;
+}
+
+.terms-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--secondary);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.terms-link {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .terms-checkbox {
+    font-size: 13px;
+  }
+}
