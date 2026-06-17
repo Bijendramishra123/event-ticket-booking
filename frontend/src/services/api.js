@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-// Use relative path for Docker nginx proxy
+// Use relative path for API (will use Vercel proxy)
 const API_BASE_URL = '/api';
 
-// Create axios instance
+console.log('🔗 API URL:', API_BASE_URL);
+
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -18,11 +19,11 @@ api.interceptors.request.use(
   (config) => {
     const token = 'demo_token_' + Date.now();
     config.headers.Authorization = `Bearer ${token}`;
-    console.log('Sending request to:', config.url);
+    console.log('📤 Request:', config.method.toUpperCase(), config.url);
     return config;
   },
   (error) => {
-    console.error('Request error:', error);
+    console.error('❌ Request error:', error);
     return Promise.reject(error);
   }
 );
@@ -30,27 +31,23 @@ api.interceptors.request.use(
 // Response interceptor
 api.interceptors.response.use(
   (response) => {
-    console.log('Response from:', response.config.url, 'status:', response.status);
+    console.log('📥 Response:', response.status, response.config.url);
     return response.data;
   },
   (error) => {
-    console.error('Response error:', error);
+    console.error('❌ Response error:', error);
     if (error.response) {
-      console.error('Error status:', error.response.status);
-      console.error('Error data:', error.response.data);
       return Promise.reject({
         message: error.response.data?.message || 'An error occurred',
         status: error.response.status,
         data: error.response.data
       });
     } else if (error.request) {
-      console.error('No response received');
       return Promise.reject({
         message: 'Network error. Please check your connection.',
         status: 0
       });
     } else {
-      console.error('Request setup error:', error.message);
       return Promise.reject({
         message: error.message || 'An unexpected error occurred',
         status: 500
